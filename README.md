@@ -6,4 +6,5 @@
   **Facebook :** Suriya Madeekan
 
 # วิธีการใช้งาน
+ * 1. ติดตั้ง Node.js เวอร์ชั้น 16.
 
