@@ -50,3 +50,12 @@ node index.js
  1. พิมพ์คำสั่ง  `!buy`
  2. เลือกสินค้าที่ต้องการ
  3. เมื่อกดสั่งซื้อแล้วบอทจะส่งรหัสไปในแชทส่วนตัว
+
+# ปัญหาต่างๆ
+
+ ### - `Error [DISALLOWED_INTENTS]: Privileged intent provided is not enabled or whitelisted. `
+![error](https://cdn.discordapp.com/attachments/817365316950294569/880011077914607636/unknown.png) 
+
+### วิธีแก้ไข
+
+![fix](https://cdn.discordapp.com/attachments/817365316950294569/880010716357206046/dpC9g.png) 
