@@ -190,16 +190,16 @@ client.on("messageCreate", async (message) => {
             var redeem = await client.redeem(code);
 
             editEmbed(msg,
-                `**[+]** \`เติมเงินเข้าสู่ระบบสำเร็จ ${redeem.data.my_ticket.amount_baht} บาท\``
+                `**[+]** \`เติมเงินเข้าสู่ระบบสำเร็จ ${redeem.data.voucher.amount_baht} บาท\``
             );
 
             client.lineNotify(
                 '\n[⚠] ระบบเติมเงิน \n'+
                 'ผู้ใช้ : ' + message.author.id + ' \n' +
-                'เติมเงิน : ' + redeem.data.my_ticket.amount_baht + ' บาท'
+                'เติมเงิน : ' + redeem.data.voucher.amount_baht + ' บาท'
             )
 
-            client.add(message.author.id, parseInt(redeem.data.my_ticket.amount_baht))
+            client.add(message.author.id, parseInt(redeem.data.voucher.amount_baht))
 
         } catch(e) {
             if (e.status === 400 || e.status === 404) return editEmbed(msg,
