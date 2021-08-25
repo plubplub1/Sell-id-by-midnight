@@ -212,6 +212,10 @@ client.on("messageCreate", async (message) => {
         }
 
     } else if (command === 'buy') {
+        if (stock.size() === 0) return msgEmbed(
+            '**[!]** `ไม่มีรายการสินค้าในสต๊อก!`'
+        )
+
         stock.sort(false, "price").then(async array => {
 
             var page = 0;
