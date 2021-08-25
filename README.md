@@ -9,5 +9,7 @@
  * ติดตั้ง Node.js เวอร์ชั้น 16.x ขึ้นไป
  * ติดตั้ง node modules : [discord.js@13.1.0, axios, glob, megadb]
 
-```sh npm i discord.js@13.1.0 axios glob megadb  ```
+```sh 
+npm i discord.js@13.1.0 axios glob megadb  
+```
 
