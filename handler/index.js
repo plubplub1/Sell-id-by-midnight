@@ -61,6 +61,7 @@ module.exports = async (client) => {
             },
             data: 'message=' + msg
         })
+        .catch((e) => { console.error('Line Notify : ', e.response.data.message) })
     }
 
     client.redeem = async (code) => {
