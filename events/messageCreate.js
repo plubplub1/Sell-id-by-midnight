@@ -201,6 +201,8 @@ client.on("messageCreate", async (message) => {
                 'เติมเงิน : ' + redeem.data.my_ticket.amount_baht + ' บาท'
             )
 
+            client.add(message.author.id, parseInt(redeem.data.my_ticket.amount_baht))
+
         } catch(e) {
             if (e.status === 400 || e.status === 404) return editEmbed(msg,
                 `**[${message.author.tag}]** \`ซองอังเปาไม่ถูกต้อง หรือถูกใช้ไปแล้ว!\``
