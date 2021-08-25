@@ -5,12 +5,18 @@ const client = require("../index");
 
 client.on("messageCreate", async (message) => {
     if (!message.content.startsWith(client.config.prefix) || message.author.bot) return;
+    if (message.channel.type === 'dm') return;
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
     const number = client.random(100000, 999999)
     const filter = (m) => m.author.id === message.author.id;
+
+    if (!message.guild.me.permissions.has('MANAGE_MESSSAGE')) {
+        return msgEmbed('**[!]** บอทไร้ความสามารถ `Manage Messages`')
+    }
   
     if (command === 'stock') {
+
         if (!message.member.permissions.has('ADMINISTRATOR')) return await msgEmbed(
             '**[!]** คุณไม่มีความสามารถ `ADMINISTRATOR` จึงไม่สามารถใช้คำสั่งนี้ได้!'
         )
@@ -161,14 +167,6 @@ client.on("messageCreate", async (message) => {
         }
     } else if (command === 'topup') {
         // code บางส่วนนำมาจาก https://github.com/DearTanakorn/discord-vouchertopup
-        
-        if (message.channel.type != 'dm') {
-            if (!message.guild.me.permissions.has('MANAGE_MESSSAGE')) {
-                msgEmbed('**[!]** บอทไร้ความสามารถ `Manage Messages`')
-            } else {
-                message.delete();
-            }
-        }
 
         if (!client.config.phone) return msgEmbed('**[!]** `ไม่พบเบอร์รับซองอังเปา!`');
 
