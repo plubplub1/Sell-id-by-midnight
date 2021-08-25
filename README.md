@@ -10,5 +10,5 @@
  * ติดตั้ง node modules : [discord.js@13.1.0, axios, glob, megadb]
 
 ` < npm i discord.js@13.1.0 axios glob megadb > ` 
-`<addr>
+`<addr>`
 
