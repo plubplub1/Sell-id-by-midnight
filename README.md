@@ -32,5 +32,5 @@ node index.js
 
 * วิธีการลบสินค้า
   1. พิมพ์คำสั่ง `!stock remove [ไอดีสินค้า]`
-   * ตัวอย่าง : `!stock remove 9999`
+   - ตัวอย่าง : `!stock remove 9999`
 
