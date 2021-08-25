@@ -1,8 +1,8 @@
 {
-    "token": "ODE1NTY5NDk0NzkyNzMyNjgy.YDuUSA.k5eg6CX4GjiiBBjmUIua2iqfAoU",
-    "linetoken": "ttMTLCKpgEz5SWKbm1wOQ6T2BqnRhN2iFoWKtTBz93W",
+    "token": "DISCORD-TOKEN",
+    "linetoken": "LINE-TOKEN",
     "prefix": "!",
     "color": "#03b9f5",
-    "phone": "0650088286",
+    "phone": "PHONE_NUMBER",
     "lineNotify": false
 }
