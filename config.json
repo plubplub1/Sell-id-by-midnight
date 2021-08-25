@@ -4,5 +4,5 @@
     "prefix": "!",
     "color": "#03b9f5",
     "phone": "PHONE_NUMBER",
-    "lineNotify": false
+    "lineNotify": true
 }
