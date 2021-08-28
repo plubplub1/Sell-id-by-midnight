@@ -14,7 +14,36 @@ client.on("messageCreate", async (message) => {
     if (!message.guild.me.permissions.has('MANAGE_MESSSAGE')) {
         return msgEmbed('**[!]** บอทไร้ความสามารถ `Manage Messages`')
     }
-  
+    const back = new MessageButton()
+        .setCustomId('back')
+        .setLabel('◀◀')
+        .setStyle('SUCCESS')
+
+    const next = new MessageButton()
+        .setCustomId('next')
+        .setLabel('▶▶')
+        .setStyle('SUCCESS')
+
+    const ok = new MessageButton()
+        .setCustomId('ok')
+        .setLabel('✔')
+        .setStyle('SECONDARY')
+
+    const cancel = new MessageButton()
+        .setCustomId('cancel')
+        .setLabel('✖')
+        .setStyle('DANGER')
+
+        
+    const row = new MessageActionRow()
+        .addComponents(back)
+        .addComponents(ok)
+        .addComponents(next)
+        .addComponents(cancel)
+
+    const row_cancel = new MessageActionRow()
+        .addComponents(cancel)
+    
     if (command === 'stock') {
 
         if (!message.member.permissions.has('ADMINISTRATOR')) return await msgEmbed(
@@ -73,10 +102,16 @@ client.on("messageCreate", async (message) => {
                                     'รายละเอียด : ' + content
                                 )
                             })
-                            .catch(() => { editEmbed(msg, '**[!]** `หมดเวลาการทำงาน!`') })
+                            .catch(() => {
+                                editEmbed(msg, '**[!]** `หมดเวลาการทำงาน!`')
+                                .then((m) => setTimeout(() => m.delete().catch(() => { }), 3000))
+                           })
                         
                     })
-                    .catch(() => { editEmbed(msg, '**[!]** `หมดเวลาการทำงาน!`') })
+                    .catch(() => {
+                         editEmbed(msg, '**[!]** `หมดเวลาการทำงาน!`')
+                         .then((m) => setTimeout(() => m.delete().catch(() => { }), 3000))
+                    })
 
                 break;
 
@@ -219,36 +254,6 @@ client.on("messageCreate", async (message) => {
         stock.sort(false, "price").then(async array => {
 
             var page = 0;
-
-            const back = new MessageButton()
-                .setCustomId('back')
-                .setLabel('◀◀')
-                .setStyle('SUCCESS')
-
-            const next = new MessageButton()
-                .setCustomId('next')
-                .setLabel('▶▶')
-                .setStyle('SUCCESS')
-
-            const ok = new MessageButton()
-                .setCustomId('ok')
-                .setLabel('✔')
-                .setStyle('SECONDARY')
-
-            const cancel = new MessageButton()
-                .setCustomId('cancel')
-                .setLabel('✖')
-                .setStyle('DANGER')
-
-        
-            const row = new MessageActionRow()
-                .addComponents(back)
-                .addComponents(ok)
-                .addComponents(next)
-                .addComponents(cancel)
-
-            const row_cancel = new MessageActionRow()
-                .addComponents(cancel)
                     
 
             const eb = new MessageEmbed()
@@ -318,7 +323,7 @@ client.on("messageCreate", async (message) => {
                     editEmbed(msg,
                         '**[+]** `ซื้อสินค้าสำเร็จ! เช็ครายระเอียดสินค้าได้ที่แชทส่วนตัว`',
                         [row_cancel]
-                    ).then((m) => setTimeout(() => m.delete(), 3000))
+                    ).then((m) => setTimeout(() => m.delete().catch(() => { }), 3000))
 
                     i.user.send({
                         embeds:[
@@ -363,8 +368,8 @@ client.on("messageCreate", async (message) => {
             });
 
             collector.on('end', (i) => {
-                editEmbed(msg, '**[!]** `หมดเวลาการทำงาน!`')
-                .then((m) => setTimeout(() => m.delete(), 3000))
+                editEmbed(msg, '**[!]** `หมดเวลาการทำงาน!`', [row_cancel])
+                .then((m) => setTimeout(() => m.delete().catch(() => { }), 3000))
             })
             
         }); 
