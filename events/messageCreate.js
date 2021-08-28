@@ -57,7 +57,7 @@ client.on("messageCreate", async (message) => {
                         '**EX.** `Lv.Max, หมัด SuperHuman, 3ดาบสุ่ม`' 
                         )
 
-                    message.channel.awaitMessages({ filter,  max: 1, time: 5000, errors: ['time'] })
+                    message.channel.awaitMessages({ filter,  max: 1, time: 1000 * 60 * 5, errors: ['time'] })
                     .then(collected => {
 
                         var content = collected.first().content;
@@ -68,7 +68,7 @@ client.on("messageCreate", async (message) => {
                             '**Ex.** `LnwZa2547 12345za 150`'
                             )
 
-                            message.channel.awaitMessages({ filter,  max: 1, time: 5000, errors: ['time'] })
+                            message.channel.awaitMessages({ filter,  max: 1, time: 1000 * 60 * 5, errors: ['time'] })
                             .then(collected => {
 
                                 var info = collected.first().content.trim().split(/ +/);
@@ -280,7 +280,7 @@ client.on("messageCreate", async (message) => {
 
             const filter = (m) => m.user.id === message.author.id;
 
-            const collector = message.channel.createMessageComponentCollector({ filter, time: 5000 });
+            const collector = message.channel.createMessageComponentCollector({ filter, time: 1000 * 60 * 5 });
 
             collector.on('collect', async i => {
                 if(i.customId == "back"){
