@@ -1,9 +1,8 @@
 # บอทขายไก่ตันอัตโนมติ
 - หากพบช่องโหว่โปรดติดต่อที่
 
-  **Discord :** KIMMOJI#7986
+  **Discord :** MIDNIGHT#1191
 
-  **Facebook :** Suriya Madeekan
 
 # วิธีการติดตั้ง
  1. ติดตั้ง Node.js เวอร์ชั้น 16.x ขึ้นไป
